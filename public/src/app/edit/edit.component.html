@@ -1,0 +1,17 @@
+<br><br>
+<h4>Register a restaurant</h4>
+
+<form (submit)="updateRestaurant()">
+  <div class="form-group">
+    <label for="name">Restaurant Name:</label>
+    <input type="text" name="restInfo.name" class="form-control" [(ngModel)]="restInfo.name">
+    <span *ngIf="errors.name">{{errors.name.message}}</span>
+  </div>
+  <div class="form-group">
+    <label for="cuisine">Cuisine type: </label>
+    <input type="text" name="restInfo.cuisine" class="form-control" [(ngModel)]="restInfo.cuisine">
+    <span *ngIf="errors.cuisine">{{errors.cuisine.message}}</span>
+  </div>
+  <button class="btn btn-danger" [routerLink]="['/restaurants']">Cancel</button>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>

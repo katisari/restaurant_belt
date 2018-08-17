@@ -1,0 +1,16 @@
+<h4>Edit a restaurant</h4>
+<span *ngIf="error.already_exist">{{error.already_exist}}</span>
+<form (submit)="newRestaurant()">
+  <div class="form-group">
+    <label for="name">Restaurant Name:</label>
+    <input type="text" name="newRest.name" class="form-control" [(ngModel)]="newRest.name">
+    <span *ngIf="error.name">{{error.name.message}}</span>
+  </div>
+  <div class="form-group">
+    <label for="cuisine">Cuisine type: </label>
+    <input type="text" name="newRest.cuisine" class="form-control" [(ngModel)]="newRest.cuisine">
+    <span *ngIf="error.cuisine">{{error.cuisine.message}}</span>
+  </div>
+  <button class="btn btn-danger" [routerLink]="['/restaurants']">Cancel</button>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>

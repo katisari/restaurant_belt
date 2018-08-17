@@ -1,0 +1,19 @@
+<form (submit)="newReview()">
+  <label for="name">Your Name:</label>
+  <input type="text" name="newReviewInput.name" class="form-control" [(ngModel)]="newReviewInput.name">
+  <span *ngIf="error.name">{{error.name.message}}</span><br>
+  <label for="stars">Stars: </label>
+  <select class="form-control" name="newReviewInput.stars" [(ngModel)]="newReviewInput.stars">
+    <option value="1">1 star</option>
+    <option value="2">2 stars</option>
+    <option value="3">3 stars</option>
+    <option value="4">4 stars</option>
+    <option value="5">5 stars</option>
+  </select>
+  <span *ngIf="error.stars">{{error.stars.message}}</span><br>
+  <label for="name">Your review:</label>
+  <input type="text" name="newReviewInput.review" class="form-control" [(ngModel)]="newReviewInput.review">
+  <span *ngIf="error.review">{{error.review.message}}</span><br>
+  <button [routerLink]="['/restaurants', id]" class="btn btn-danger">Cancel</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

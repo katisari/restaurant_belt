@@ -1,0 +1,14 @@
+<button class="btn btn-primary" [routerLink]="['review']">New Review</button>
+
+<table class="table" *ngIf="all_reviews">
+  <tr>
+    <th>Customer</th>
+    <th>Stars</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let review of all_reviews">
+    <td>{{review.name}}</td>
+    <td>{{review.stars}}</td>
+    <td>{{review.review}}</td>
+  </tr>
+</table>

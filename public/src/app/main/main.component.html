@@ -1,0 +1,20 @@
+<button class="btn btn-primary" [routerLink]="['new']">New Restaurant</button>
+<table class="table" *ngIf="restaurants">
+  <tr>
+    <th>Restaurant</th>
+    <th>Cuisine</th>
+    <th>Actions available</th>
+  </tr>
+  <tr *ngFor="let restaurant of restaurants">
+    <td>{{restaurant.name}}</td>
+    <td>{{restaurant.cuisine}}</td>
+    <td><button class="btn btn-success" [routerLink]="[restaurant._id]">Read Review</button>
+    <button class="btn btn-primary" (click)="editPressed(restaurant)">Update</button>
+    <button class="btn btn-danger" (click)="deleteRest(restaurant._id)" *ngIf="restaurant.canDelete == true">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<button (click)="remove_all()" class="btn btn-danger">Clear Everything</button>
+
+<app-edit *ngIf="pressed_edit" [pressed_restaurant]="pressed_rest"></app-edit>
